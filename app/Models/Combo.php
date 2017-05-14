@@ -33,4 +33,9 @@ class Combo extends Model
     {
         return $this->morphMany(Image::class, 'target');
     }
+
+    public function comboProduct()
+    {
+        return $this->hasMany(ComboProduct::class);
+    }
 }

@@ -10,7 +10,7 @@ class Product extends Model
         'id',
         'name',
         'price',
-        'stautus',
+        'status',
     ];
 
     public function images()
@@ -25,6 +25,15 @@ class Product extends Model
 
     public function comboProduct()
     {
-        # code...
+        return $this->belongsTo(comboProduct::class);
+    }
+
+    public function name($option = false)
+    {
+        if ($option) {
+            return str_limit($this->attributes['name'], config('settings.length_title_default'));
+        }
+
+        return $this->attributes['name'];
     }
 }
