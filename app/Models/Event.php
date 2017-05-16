@@ -48,4 +48,9 @@ class Event extends Model
     {
         return $this->morphMany(Image::class, 'target');
     }
+
+    public function combos()
+    {
+        return $this->belongsToMany(Combo::class);
+    }
 }
