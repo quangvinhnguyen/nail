@@ -7,7 +7,7 @@ use Illuminate\Container\Container as Application;
 use Illuminate\Support\Collection;
 use Exception;
 
-class BaseRepository implements BaseRepositoryInterface
+abstract class BaseRepository implements BaseRepositoryInterface
 {
     protected $model;
 
@@ -16,6 +16,7 @@ class BaseRepository implements BaseRepositoryInterface
     public function __construct()
     {
         $this->app = new Application();
+        $this->makeModel();
     }
 
     abstract public function model();
@@ -58,7 +59,7 @@ class BaseRepository implements BaseRepositoryInterface
         return $this->model->paginate($limit, $columns);
     }
 
-    public function list($column, $key = null)
+    public function lists($column, $key = null)
     {
         return $this->model->pluck($column, $key);
     }

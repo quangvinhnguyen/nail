@@ -20,6 +20,9 @@ Route::get('/gallery', function() {
 Route::get('/contact', function() {
     return view('users.pages.contact');
 });
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/service', 'ProductController@index')->name('index');
