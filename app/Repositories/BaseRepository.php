@@ -5,6 +5,7 @@ namespace App\Repositories;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Container\Container as Application;
 use Illuminate\Support\Collection;
+use Exception;
 
 class BaseRepository implements BaseRepositoryInterface
 {
@@ -24,7 +25,7 @@ class BaseRepository implements BaseRepositoryInterface
         $model = $this->app->make($this->model());
 
         if (!$model instanceof Model) {
-            throw new RepositoryException("Class {$this->model()} must be an instance of Illuminate\\Database\\Eloquent\\Model");
+            throw new Exception("Class {$this->model()} must be an instance of Illuminate\\Database\\Eloquent\\Model");
         }
 
         return $this->model = $model;
@@ -40,9 +41,21 @@ class BaseRepository implements BaseRepositoryInterface
         return $this->model = $this->model->newQuery();
     }
 
+    public function all()
+    {
+        return $this->model->all();
+    }
+
     public function find($id)
     {
         return $this->model->find($id);
+    }
+
+    public function paginate($limit = null, $columns = ['*'])
+    {
+        $limit = is_null($limit) ? config('settings.paginate_limit') : $limit;
+
+        return $this->model->paginate($limit, $columns);
     }
 
     public function list($column, $key = null)
@@ -99,8 +112,41 @@ class BaseRepository implements BaseRepositoryInterface
         return $this->model->create($inputs);
     }
 
+    public function firstOrCreate($value)
+    {
+        return $this->model->firstOrCreate($value);
+    }
+
     public function insert($inputs = [])
     {
         return $this->newQuery()->insert($inputs);
+    }
+
+    public function delete($ids)
+    {
+        $ids = is_array($ids) ? $ids : [$ids];
+
+        return $this->model->whereIn('id', $ids)->delete();
+    }
+
+    public function singleUpdate($id, $value)
+    {
+        $model = $this->model->findOrFail($id);
+
+        if ($model) {
+            $model->fill($input);
+            $model->save();
+
+            return $this;
+        } else {
+            throw new Exception(trans('messages.not_found_object'));
+        }
+    }
+
+    public function multiUpdate($ids, $field, $value)
+    {
+        $ids = is_array($ids) ? $ids : [$ids];
+
+        return $this->whereIn('id', $ids)->update($field, $value);
     }
 }
