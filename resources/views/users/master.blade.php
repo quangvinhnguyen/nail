@@ -20,6 +20,7 @@
         <link href="scripts/icons/general/stylesheets/general_foundicons_ie7.css" media="screen" rel="stylesheet" type="text/css" />
         <link href="scripts/icons/social/stylesheets/social_foundicons_ie7.css" media="screen" rel="stylesheet" type="text/css" />
     <![endif]-->
+     <link href="css/docs.css" rel="stylesheet">
     <link rel="stylesheet" href="scripts/fontawesome/css/font-awesome.min.css">
     <!--[if IE 7]>
         <link rel="stylesheet" href="scripts/fontawesome/css/font-awesome-ie7.min.css">
@@ -61,8 +62,9 @@
                         </button>
                         <div class="nav-collapse collapse">
                             <ul class="nav nav-pills ddmenu">
-                                <li class="dropdown active"><a href="/">Home</a></li>
+                                <li class="dropdown "><a href="/">Home</a></li>
                 <li class="dropdown"><a href="about.ejs">About</a></li>
+                <li class="dropdown"><a href="service">Services</a></li>
                                 <li class="dropdown">
                                     <a href="" class="dropdown-toggle">Page <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
@@ -103,9 +105,22 @@
 
 
 
-
+ <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 <script src="scripts/jquery.min.js" type="text/javascript"></script> 
 <script src="scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="js/bootstrap-transition.js"></script>
+    <script src="js/bootstrap-alert.js"></script>
+    <script src="js/bootstrap-modal.js"></script>
+    <script src="js/bootstrap-dropdown.js"></script>
+    <script src="js/bootstrap-scrollspy.js"></script>
+    <script src="js/bootstrap-tab.js"></script>
+    <script src="js/bootstrap-tooltip.js"></script>
+    <script src="js/bootstrap-popover.js"></script>
+    <script src="js/bootstrap-button.js"></script>
+    <script src="js/bootstrap-collapse.js"></script>
+    <script src="js/bootstrap-carousel.js"></script>
+    <script src="js/bootstrap-typeahead.js"></script>
+    <script src="js/bootstrap-affix.js"></script>
 <script src="scripts/default.js" type="text/javascript"></script>
 <script src="scripts/carousel/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script>
 <script src="scripts/wookmark/js/jquery.wookmark.js" type="text/javascript"></script>
@@ -117,6 +132,13 @@
 
 
 <script type="text/javascript">$(window).load(function () {var options = {autoResize: true,container: $('#gridArea'),offset: 10};var handler = $('#tiles li');handler.wookmark(options);$('#tiles li').each(function () { var imgm = 0; if($(this).find('img').length>0)imgm=parseInt($(this).find('img').not('p img').css('margin-bottom')); var newHeight = $(this).find('img').height() + imgm + $(this).find('div').height() + $(this).find('h4').height() + $(this).find('p').not('blockquote p').height() + $(this).find('iframe').height() + $(this).find('blockquote').height() + 5;if($(this).find('iframe').height()) newHeight = newHeight+15;$(this).css('height', newHeight + 'px');});handler.wookmark(options);handler.wookmark(options);});</script><script src="scripts/prettyphoto/js/jquery.prettyPhoto.js" type="text/javascript"></script><script type="text/javascript">$("a[rel^='prettyPhoto']").prettyPhoto({social_tools: false});$("a[rel^='prettyPhoto'] img").hover(function(){$(this).animate({opacity:0.7},300)},function(){$(this).animate({opacity:1},300)});</script>
+
+
+  
+<script src="js/holder/holder.js"></script>
+    <script src="js/google-code-prettify/prettify.js"></script>
+
+    <script src="js/application.js"></script>
 
 </body>
 </html>
