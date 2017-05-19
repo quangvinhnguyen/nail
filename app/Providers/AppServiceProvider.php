@@ -8,6 +8,9 @@ use App\Repositories\Service\ServiceRepository;
 use App\Repositories\Service\ServiceRepositoryInterface;
 use App;
 
+use App\Repositories\Product\ProductRepository;
+use App\Repositories\Product\ProductRepositoryInterface;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -28,5 +31,6 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         App::bind(ServiceRepositoryInterface::class, ServiceRepository::class);
+        App::bind(ProductRepositoryInterface::class, ProductRepository::class);
     }
 }
