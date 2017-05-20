@@ -15,6 +15,7 @@ class RedirectIfNotAdmin
      */
     public function handle($request, Closure $next)
     {
+        dd('1231');
         return $next($request);
     }
 }
