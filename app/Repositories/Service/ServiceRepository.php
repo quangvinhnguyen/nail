@@ -10,7 +10,7 @@ use App\Repositories\BaseRepository;
 class ServiceRepository extends BaseRepository implements ServiceRepositoryInterface
 {
     
-    function __construct()
+    public function __construct()
     {
         parent::__construct();
     }
