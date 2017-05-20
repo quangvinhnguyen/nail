@@ -12,7 +12,7 @@ class Product extends Model
         'price',
         'status',
         'service_id',
-        'description'
+        'description',
     ];
 
     public function images()
